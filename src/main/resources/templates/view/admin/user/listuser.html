@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table user</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--    private int id;
+            private String email, password, phoneNumber, fullName, address;
+     -->
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-6 col-md-12 mx-auto">
+          <div class="mb-3">
+            <h1>List user</h1>
+          </div>
+          <hr />
+          <div class="mb-3">
+            <table class="table table-bordered">
+              <thead>
+                <tr class="bg bg-dark text-warning">
+                  <th scope="col">ID</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone Number</th>
+                  <th scope="col">Full Name</th>
+                  <th scope="col">Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="user:${users}">
+                  <th scope="row" th:text="${user.id}"></th>
+                  <td th:text="${user.email}"></td>
+                  <td th:text="${user.phoneNumber}"></td>
+                  <td th:text="${user.fullName}"></td>
+                  <td th:text="${user.address}"></td>
+                </tr>
+                <tr th:if="${users.size() == 0 }">
+                  <td colspan="5" class="text-center">No users found!</td>
+                </tr>
+              </tbody>
+            </table>
+            <a th:href="@{/admin/user/tableuser}" class="btn btn-success"
+              >Back</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
